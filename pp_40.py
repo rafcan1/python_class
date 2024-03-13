@@ -1,5 +1,7 @@
 '''
-Exercise 30, pp_30.py
+Exercise 40, pp_30.py
+
+Task is the same as in exercise 30 but additionally you have to write & use a function removing punctuation.
 Write a program with a function called map_longest() that takes a text as a parameter and returns the longest word contained in that text and its length - tuple.
 
 Result of a program should be a message 
@@ -8,6 +10,22 @@ The longest word in the text is 'decision-making.' with the length of 16 charact
 
 use map function together with lambda, don't deal with punctuation
 '''
+
+
+def remove_punctuation(word: str) -> str:
+    '''
+    Function removes punctuation from the given string
+
+    Parameters:
+        word: any string with or without the punctuation
+    Returns:
+        string without punctuation
+    '''
+    for i in word:
+        if i in ".,:!?":
+            continue
+        else:
+            print(i, end="")
 
 
 def map_longest(text: str) -> tuple:
@@ -41,6 +59,5 @@ This involves creating systems that are transparent, explainable, and accountabl
 to participate in the AI-driven economy. In conclusion, AI is a rapidly evolving field that has the potential to bring about significant positive change, but it is important that we approach 
 its development and deployment with caution and responsibility.
 '''
-
-
+remove_punctuation(text)
 print(map_longest(text))
