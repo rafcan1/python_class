@@ -21,11 +21,8 @@ def remove_punctuation(word: str) -> str:
     Returns:
         string without punctuation
     '''
-    for i in word:
-        if i in ".,:!?":
-            continue
-        else:
-            print(i, end="")
+    stripped = list(lambda item: item.strip(), word)
+    return stripped
 
 
 def map_longest(text: str) -> tuple:
@@ -59,5 +56,5 @@ This involves creating systems that are transparent, explainable, and accountabl
 to participate in the AI-driven economy. In conclusion, AI is a rapidly evolving field that has the potential to bring about significant positive change, but it is important that we approach 
 its development and deployment with caution and responsibility.
 '''
-remove_punctuation(text)
+print(remove_punctuation(text))
 print(map_longest(text))
