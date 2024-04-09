@@ -28,28 +28,22 @@ def is_palindrome(text: str) -> bool:
         False: if text is not a palindrome
     '''
     # your code below
-    cleaned_text = ''.join(i.lower() for i in text if i.isalnum())
-    start = 0
-    end = len(cleaned_text) - 1
 
-    while start < end:
+    text = text.replace(" ", "").replace(".", "").replace(",", "").lower()
+    mid = len(text)//2
 
-        if cleaned_text[start] != cleaned_text[end]:
+    for i in range(mid):
+        if text[i] != text[-i-1]:
             return False
-        start += 1
-        end -= 1
-
     return True
 
+
+my_text = input("Enter the word or sentence:...")
+if is_palindrome(my_text):
+    print(f'{my_text} : is a palindrome!!')
+else:
+    print(f'{my_text} : is not a palindrome!!')
 
 # Test cases
 palindromes = ["Dad", "Evil olive.", "Never odd or even.", "Amore, Roma."]
 non_palindromes = ["test", "ad", "a", "'''"]
-
-print("Palindromes:")
-for palindrome in palindromes:
-    print(f"{palindrome}: {is_palindrome(palindrome)}")
-
-print("\nNon-palindromes:")
-for non_palindrome in non_palindromes:
-    print(f"{non_palindrome}: {is_palindrome(non_palindrome)}")
