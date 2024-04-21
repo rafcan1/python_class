@@ -21,7 +21,7 @@ Improve error handling using exceptions
 
 def factorial(n: int) -> int:
     '''
-    Functions calculates the factiorial of n
+    Functions calculates the factorial of n
 
     Parameters:
         n: number, positive int
@@ -43,7 +43,10 @@ def factorial(n: int) -> int:
         print("the number is not a positive number")
 
 
-number = int(input("Enter a positive integer number:.."))
-result = factorial(number)
-message = "ERROR, You cant calculate factorial from negative number"
-print(f'{number}! = {message if result == -9999 else result}')
+try:
+    number = int(input("Enter a positive integer number:.."))
+    result = factorial(number)
+    message = "ERROR, You cant calculate factorial from negative number"
+    print(f'{number}! = {message if result == -9999 else result}')
+except ValueError:
+    print(f'You didn\'t enter a positive integer number.')
