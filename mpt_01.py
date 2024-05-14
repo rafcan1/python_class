@@ -58,6 +58,7 @@ def get_roll_counter() -> int:
             return attempt
 
 
+"""
 def print_game_results(name1: str, counter1: int, name2: str, counter2: int) -> None:
     '''
     Function prints the results of 'Double Six Dice Game' for 2 players
@@ -96,3 +97,50 @@ def header():
 
 header()
 print(print_game_results("name1", "number1", "name2", "number2"))
+"""
+
+# CORRECTION
+
+
+def print_game_results(name1: str, counter1: int, name2: str, counter2: int) -> None:
+    '''
+    Function prints the results of 'Double Six Dice Game' for 2 players
+
+    Parameters:
+        name1: name of the first player
+        counter1: number of attempts of the first player until get DoubleSix    
+        name2: name of the first player
+        counter2: number of attempts of the first player until get DoubleSix
+    Returns:
+        None
+    '''
+
+    if counter2 == counter1:
+        print(f'It is a draw!')
+    elif counter1 < counter2:
+        print(f'Player {name1} won, with {counter1} dice rolls!!!')
+        print(f'Player {name2} had, {counter2} attempts')
+    else:
+        print(f'Player {name2} won, with {counter2} dice rolls!!!')
+        print(f'Player {name1} had, {counter1} attempts')
+    return None
+# After implementing your functions continue the code here below:
+
+
+def header():
+    print("_" * 30)
+    print("|" + " " * 28 + "|")
+    print("|" + "   Double Six Dice Game     " + "|")
+    print("|" + "_"*28 + "|")
+    return None
+
+
+header()
+name1 = input("Enter the name of player 1...")
+name2 = input("Enter the name of player 2...")
+counter1 = get_roll_counter()
+counter2 = get_roll_counter()
+print_game_results(name1, counter1, name2, counter2)
+
+# NO double print statements, it brings "none"
+# don't put input inside a function if you have a parameter with the same name,put it outside

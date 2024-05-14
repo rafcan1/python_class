@@ -21,7 +21,7 @@ Using the sort () method and a lambda expression, sort, in a ascending way, the 
 WRITE ONLY ONE LINE COMMAND, WITHOUT UNNECESSARY SPACES.
 Use parameter name: item
 """
-
+"""
 articles = [
     {'id': 1, 'Name': 'Bike', 'Prod': 2010, 'Price': 100},
     {'id': 2, 'Name': 'Bread', 'Prod': 2022, 'Price': 5},
@@ -29,7 +29,7 @@ articles = [
     {'id': 4, 'Name': 'Bus', 'Prod': 2007, 'Price': 1000},
 ]
 print(list(map(articles.sort(key=lambda item: item['Price']))))
-
+"""
 
 """
 Question:
@@ -41,3 +41,13 @@ expected results:
 [(7, 9), (8, 7), (3, 1), (4, 0)]
 Use parameter name: item
 """
+L1 = [4, 2, 6, 2, 11]
+L2 = [5, 2, 3, 3, 9]
+"""
+The lists have the same length.
+Using the map () function and a lambda expression, write a one-line-command which will transform the given lists into one (L3), containing the remainder of
+dividing the element of the first list by the corresponding element of the second list.
+Expected result of transformation:
+[4, 0, 0, 2, 2]
+"""
+print(list(map(lambda item1, item2: item1 % item2, L1, L2)))
