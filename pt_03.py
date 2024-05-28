@@ -50,15 +50,11 @@ def get_text(file_path: str, start_line: int) -> str:
     Returns:
         text
     '''
-    try:
-        with open(file_path, "r") as file:
-            lines = file.readlines()
-            if start_line < 1 or start_line > len(lines):
-                raise ValueError("Line number is out of range.")
-            text = ''.join(lines[start_line-1:])
-            return text
-    except FileNotFoundError:
-        print("The specified file was not found.")
+
+    with open(file_path, "r") as file:
+        lines = file.readlines()
+        text = ''.join(lines[start_line-1:])
+        return text
 
 
 def text_analyzer(file: str):
@@ -67,16 +63,27 @@ def text_analyzer(file: str):
     which starts with a vowel and ends with a consonant
 
     """
-    result = re.findall(
-        r"\b[aeiouyAEIOUY]\w{4}[bcdfghjklmnpqrstvwzBCDFGHJKLMNPQRSTVWZ]\b", file, flags=0)
+    result = re.findall(r'[\w.-]+@[\w.-]+', file)
+    #   r"\b[aeiouyAEIOUY]\w{4}[bcdfghjklmnpqrstvwzBCDFGHJKLMNPQRSTVWZ]\b", file, flags=0)
+
     amount = len(result)
     string = f'The amount of words is {amount}.'
     print(result)
     print(string)
 
 
-file = r"c:/Users/Rafia/Documents/AMU/PYTHON CODE/PYTHON PROGRAMMING/shakespeare.txt"
-print("###############################################")
-print("Text analyzer - finds all 6 characters length words which starts with a vowel and ends with a consonant")
+try:
+    file = r"c:/Users/Rafia/Documents/AMU/PYTHON CODE/PYTHON PROGRAMMING/shakespeare.txt"
+    print("###############################################")
+    print("Text analyzer - finds all 6 characters length words which starts with a vowel and ends with a consonant")
+    answer = int(input("Enter the number of the line: "))
+    text_analyzer(get_text(file, answer))
 
-text_analyzer(get_text(file, 254))
+except FileNotFoundError:
+    print("The specified file was not found.")
+except ValueError:
+    print("Please enter a positive number.")
+
+# FEEDBACK OF PT 03:
+# don't add exception handling inside your functions.
+# Exception handling must be handled at the outermost level.
