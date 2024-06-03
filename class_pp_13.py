@@ -28,3 +28,9 @@ ansı = Student("Ansı", 25, "LMT")
 
 
 rafia.add_friend(ansı)
+"""
+DATABASES
+
+Relational tables
+
+"""
