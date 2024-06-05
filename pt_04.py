@@ -73,8 +73,10 @@ try:
     print(ta)  # inside TextAnalyzer class implement the short information banner
     print(f"Text File Analysis - {file}")
     # start of your code
-    los = ta.set_list_of_sentences()
-    nos = ta.set_number_of_sentences()
+    ta.set_list_of_sentences()
+    los = ta.get_list_of_sentences()
+    ta.set_number_of_sentences()
+    nos = ta.get_number_of_sentences()
     # end of your code
     print_sentences(los, nos)
 except ValueError as err:
